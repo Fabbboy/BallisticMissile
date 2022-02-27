@@ -11,7 +11,7 @@ BallisticMissile was made to test a web3.0 project working with NFT
 # Setup 🛠️
 1. Download all files 
 ```shell
-git clone https://github.com/Fabbboy/BallisticMissile
+git clone https://github.com/Fabbboy/BallisticMissile 
 ```
 2. Give the "main.py" permissions
 ```shell
