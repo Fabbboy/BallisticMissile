@@ -49,10 +49,12 @@ def startup():
         theFile.writelines(f"CREATED FILE\n")
         cli()
 
+
 def generateByteFile():
     BFile = open('byteFile', 'wb')
-    BFile.seek((int(args.data) * int(args.data) * int(args.data))-1)
+    BFile.seek((int(args.data) * int(args.data) * int(args.data)) - 1)
     BFile.write(bytes('\0', encoding='utf8'))
+
 
 def cli():
     global un
@@ -140,4 +142,3 @@ def expection(msg, ext):
 
 
 startup()
-
