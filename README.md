@@ -2,7 +2,7 @@
 <img src="https://media.discordapp.net/attachments/945398687906013194/947523570161041458/BML.png?width=2160&height=772">
 
 EDUCATION PURPOSES ONLY\
-![GitHub All Releases](https://img.shields.io/github/downloads/Fabbboy/BallisticMissile/total?color=black) ![GitHub stars](https://img.shields.io/github/stars/Fabbboy/BallisticMissile?style=social) ![GitHub stars](https://img.shields.io/appveyor/build/Fabbboy/BallisticMissile)
+![GitHub All Releases](https://img.shields.io/github/downloads/Fabbboy/BallisticMissile/total?color=black) ![GitHub stars](https://img.shields.io/github/stars/Fabbboy/BallisticMissile?style=social)
 ***
 # What is BallisticMissile❓
 BallisticMissile is a DDOS tool for stress testing on server that supports http and https. BallisticMissile has the option to go into hardcore mode by activating the cpuKiller mode. In this mode, not only the units are started individually, but also the "weapons" of the units, which gives faster and more intense attacks, but this is also very CPU-heavy. With BallisticMissile you also have the option of using a proxy to hide your data on the internet. 
