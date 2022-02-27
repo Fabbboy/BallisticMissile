@@ -4,6 +4,6 @@
   "delay" : "0.1",
   "retry": 3,
   "_comment" : "If your using a old, slow or bad cpu please do not use this below",
-  "cpuKiller" : false,
+  "cpuKiller" : true,
   "cpuKillerThreadPool" : 5
 }

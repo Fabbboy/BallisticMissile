@@ -24,7 +24,7 @@ nower = date.today()
 nowere = str(nower.strftime("%h:%m:%s"))
 
 cfg = open("./config.json")
-target = str(args.targete.replace("https://", ""))
+target = str(args.targete.replace("https://", "") and args.targete.replace("http://", ""))
 cfgR = json.load(cfg)
 
 
@@ -94,6 +94,7 @@ def runHttpAttack():
             pool_outpute = pe.map(cpuKiller, range(int(int(args.multi) / 2)))
             time.sleep(float(cfgR["delay"]))
         print(pool_outpute)
+        print(f"completed {int(args.attacks) * int(args.multi)} attacks")
 
 
 def cpuKiller(x):
