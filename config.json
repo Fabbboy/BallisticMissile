@@ -3,7 +3,15 @@
   "ThreadPool" : 5,
   "delay" : "0.1",
   "retry": 3,
+
   "_comment" : "If your using a old, slow or bad cpu please do not use this below",
-  "cpuKiller" : true,
-  "cpuKillerThreadPool" : 5
+  "cpuKiller" : false,
+  "cpuKillerThreadPool" : 5,
+
+  "_comment": "http and https proxy",
+  "useProxy" : false,
+  "httpProxy" : "http://35.170.183.99",
+  "httpPort" : 80,
+  "httpsProxy": "https://20.47.108.204",
+  "httpsPort" :	8888
 }
