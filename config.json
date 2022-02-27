@@ -1,0 +1,9 @@
+{
+  "_comment" : "Please do not change anything if you dont know what you are doing",
+  "ThreadPool" : 5,
+  "delay" : "0.1",
+  "retry": 3,
+  "_comment" : "If your using a old, slow or bad cpu please do not use this below",
+  "cpuKiller" : false,
+  "cpuKillerThreadPool" : 5
+}
