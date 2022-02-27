@@ -15,9 +15,9 @@ BallisticMissile was made to test a web3.0 project working with NFT
 ```shell
 git clone https://github.com/Fabbboy/BallisticMissile 
 ```
-2. Give the "main.py" permissions
+2. Give the "BallisticMissile.py" permissions
 ```shell
-chmod +x main.py
+chmod +x BallisticMissile.py
 ```
 3. If needed edit the configuration file\
 <tt>The following is the config file that we would use</tt>
@@ -57,7 +57,7 @@ pip install -r requirements.txt
 
 *all values in "{}" are example values*
 ```shell
-./main.py -t {https://google.com} -a {10} -m {10} -d {1024}
+./BallisticMissile.py -t {https://google.com} -a {10} -m {10} -d {1024}
 ```
 # Tests 🧪
 We tested this stress tool with 2 different http server.
@@ -76,7 +76,7 @@ OS: Ubuntu
 ```
 command that we started
 ```
-./main.py -t https://ip -a 100 -d 2048 -m 1000
+./BallisticMissile.py -t https://ip -a 100 -d 2048 -m 1000
 ```
 both servers crash after about 30 seconds\
 **BOTH SERVER WE'RE HOSTET ON OUR OWN NETWORK**
