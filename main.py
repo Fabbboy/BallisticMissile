@@ -17,7 +17,6 @@ parser.add_argument("-t", "--target", dest="targete", default="https://google.co
                                                                                          "https://google.com")
 parser.add_argument("-a", "--attacks", dest="attacks", default="1", help="the amount of attacks")
 parser.add_argument("-m", "--multi", dest="multi", default="1", help="run a attacks multiple times")
-parser.add_argument("-d", "--delete", dest="delete", default="", help="delete read-only log files from BallisticMissile")
 args = parser.parse_args()
 yesses = ["yes", "yEs", "yeS", "Yes", "YES", "\n", "y", "Y", ""]
 
@@ -30,7 +29,6 @@ cfgR = json.load(cfg)
 
 
 def startup():
-    os.unlink(f"./attacks/{args.delete}")
     if path.exists("./attacks"):
         theFile = open(f"./attacks/{target}.txt", "w+")
         theFile.writelines(f"CREATED FILE\n")
